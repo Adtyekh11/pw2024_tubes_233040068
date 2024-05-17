@@ -1,8 +1,8 @@
 <?php
 
 if(isset($_POST["submit"])){
-    if($_POST["username"] == "User" && $_POST["password"] == "12345"){
-        header("Location: index/index.php");
+    if($_POST["username"] == "Admin" && $_POST["password"] == "12345"){
+        header("Location: ../index/index.php");
         exit;
     }else{
         $error = true;
@@ -14,13 +14,13 @@ if(isset($_POST["submit"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login user</title>
-    <link rel="stylesheet" href="./asset/css/style.css">
+    <title>login admin</title>
+    <link rel="stylesheet" href="../../asset/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h1>Login User</h1>
+    <h1>Login Admin</h1>
     
     <?php if (isset($error)) : ?>
     <p class="p">Username / password salah!</p>
