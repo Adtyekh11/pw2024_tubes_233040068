@@ -57,10 +57,23 @@
   <img src="./asset/img/nasi timbel.jpg" alt="" srcset="">
   <img src="./asset/img/nasi tutug oncom.jpg" alt="" srcset="">
   <img src="./asset/img/seblak.jpg" alt="" srcset="">
-  
- 
 </div>
 </div>
+
+<!-- footer -->
+<footer>
+    <section class="footer">
+        <div class="row mx-3 mt-3">
+          <div class="col-md-9">
+            <p>Copyright © 2024 Food & Culinary</p>
+          </div>
+          <div class="col">
+            <p>Aditya Eka Heriyawan</p>
+          </div>
+        </div>
+        <br>
+      </section>
+    </footer>
 
 
 <!-- bootsrap -->
