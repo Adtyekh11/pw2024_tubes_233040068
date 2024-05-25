@@ -2,7 +2,7 @@
 
 if(isset($_POST["submit"])){
     if($_POST["username"] == "User" && $_POST["password"] == "12345"){
-        header("Location:../index/index.php");
+        header("Location: index/index.php");
         exit;
     }else{
         $error = true;

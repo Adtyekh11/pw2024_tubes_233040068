@@ -2,7 +2,7 @@
 
 if(isset($_POST["submit"])){
     if($_POST["username"] == "User" && $_POST["password"] == "12345"){
-        header("Location: index/index.php");
+        header("Location: admin/product/product.php");
         exit;
     }else{
         $error = true;
@@ -35,6 +35,9 @@ if(isset($_POST["submit"])){
         
         <button type="submit" name="submit">Login</button>
     </form>
+    <div class="register">
+        Don't have an account? <a href="register.php">Sign up</a>
+    </div>
 </div>
 </body>
 </html>

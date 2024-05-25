@@ -72,3 +72,15 @@ body {
     font-style: italic;
     margin-top: 1rem;
 }
+
+
+
+.container .register{
+    margin-top: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}

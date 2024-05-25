@@ -23,18 +23,13 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">About</a></li>
+              <li><a class="dropdown-item" href="#">Product</a></li>
             </ul>
           </li>
         </ul>
@@ -52,29 +47,24 @@
 <div class="content">
   <h1>Selamat Datang</h1>
   <h2>PUSAKA MAKANAN <span>KHAS JAWA BARAT</span></h2>
+  <p>Yuk, coba makanan khas Jawa Barat
   <div class="image-container">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
-  <img src="./asset/img/batagor-300x228.png" alt="" srcset="">
+  <img src="./asset/img/batagor.png" alt="" srcset="">
+  <img src="./asset/img/karedok.jpg" alt="" srcset="">
+  <img src="./asset/img/ayam bakakak.jpg" alt="" srcset="">
+  <img src="./asset/img/cireng.jpg" alt="" srcset="">
+  <img src="./asset/img/dodol.jpg" alt="" srcset="">
+  <img src="./asset/img/nasi timbel.jpg" alt="" srcset="">
+  <img src="./asset/img/nasi tutug oncom.jpg" alt="" srcset="">
+  <img src="./asset/img/seblak.jpg" alt="" srcset="">
+  
  
 </div>
 </div>
 
-<!-- content end -->
 
-
-
-<!-- bootsrap bootstrap -->
-<script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+<!-- bootsrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 </html>
