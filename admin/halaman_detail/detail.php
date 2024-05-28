@@ -1,10 +1,30 @@
 <?php
 require '../../functions.php';
 
-$product = query("SELECT * FROM product");
+
+$conn = koneksi();
+
+$keyword = isset($_GET['keyword']) ? mysqli_real_escape_string($conn, $_GET['keyword']) : '';
+
 
 if (isset($_POST['cari'])) {
-    $product = cari($_POST['keyword']);
+    $keyword = mysqli_real_escape_string($conn, $_POST['keyword']);
+    $query = "SELECT * FROM product WHERE 
+              nama LIKE '%$keyword%' OR
+              deskripsi LIKE '%$keyword%'";
+    $result = mysqli_query($conn, $query);
+
+    if ($result === false) {
+        die("Query error: " . mysqli_error($conn));
+    }
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    $product = $rows;
+} else {
+    $product = query("SELECT * FROM product");
 }
 
 if (!is_array($product)) {
@@ -20,7 +40,7 @@ if (!is_array($product)) {
       <title>Tubes</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="../../asset/css/index.css">
-  
+
 </head>
 <body>
 
@@ -53,20 +73,17 @@ if (!is_array($product)) {
     </div>
   </nav>
 
-
-<form class="d-flex" role="search" style="padding: 50px;" method="POST" >
-    <input class="form-control me-3 shadow-lg p-2 mb-2 bg-body-tertiary rounded" type="search" placeholder="Search" aria-label="Search" name="keyword">
-    <button class="btn btn-danger" type="submit" name="cari">Search</button>
+<form class="d-flex" role="search" style="padding: 50px;" method="POST" action="">
+    <input class="form-control me-3 shadow-lg p-2 mb-2 bg-body-tertiary rounded" type="search" placeholder="Search" aria-label="Search" name="keyword" id="keyword">
+    <button class="btn btn-danger" type="submit" name="cari" id="tombol-cari">Search</button>
   </form>
-
-
-
 
 <!-- content -->
 <div class="content" id="home">
   <h1>Selamat Datang</h1>
   <h2>PUSAKA MAKANAN <span>KHAS JAWA BARAT</span></h2>
   <p>Yuk, coba makanan khas Jawa Barat
+    
   <div class="image-container">
   <img src="../../asset/img/batagor.png" alt="" srcset="">
   <img src="../../asset/img/karedok.jpg" alt="" srcset="">
@@ -81,12 +98,11 @@ if (!is_array($product)) {
 </div>
 </div>
 
-
-
+<div id="container">
 <!-- product -->
 <section id="product">
 <div class="container">
-<div class="d-flex flex-wrap my-5 mx-3 ">
+<div class="d-flex flex-wrap my-5 mx-3" >
 <?php if (is_array($product) && count($product) > 0) : ?>
             <?php foreach($product as $p) : ?>
             <div class="card m-2 card-custom-size" style="width:200px">
@@ -95,8 +111,11 @@ if (!is_array($product)) {
             <h5 class="card-title"><?= $p['nama']; ?></h5>
             <p class="card-text"><?= $p['harga']; ?></p>
             <p class="card-text"><?= $p['deskripsi']; ?></p>
-            <a href="../../admin/edit_data/edit.php" class="badge text-bg-warning text-decoration-none">edit</a>
-            <a href="../../admin/delete/hapus.php" class="badge text-bg-danger text-decoration-none">delete</a>
+            <div class="card-footer mt-5">
+            <a href="#" class="btn btn-danger">Go somewhere</a>
+            </div>
+            <!-- <a href="../../admin/edit_data/edit.php" class="badge text-bg-warning text-decoration-none">edit</a> -->
+            <!-- <a href="../../admin/delete/hapus.php" class="badge text-bg-danger text-decoration-none">delete</a> -->
           </div>
         </div>
       <?php endforeach; ?>
@@ -107,7 +126,7 @@ if (!is_array($product)) {
     </div>        
     </section>
 
-
+</div>
 <!-- footer -->
     <footer>
     <section class="footer">
@@ -123,6 +142,7 @@ if (!is_array($product)) {
       </section>
     </footer>
 
+<!-- <script src="../../asset/js/script.js"></script> -->
 
 <!-- bootsrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

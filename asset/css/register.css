@@ -53,7 +53,7 @@ body {
 
 .container button {
     padding: 0.75rem;
-    background-color: #007bff;
+    background-color: #940000;
     border: none;
     border-radius: 5px;
     color: white;
@@ -64,11 +64,22 @@ body {
 }
 
 .container button:hover {
-    background-color: #0056b3;
+    background-color: #c23b22;
 }
 
 .p {
     color: red;
     font-style: italic;
     margin-top: 1rem;
+}
+
+
+.container .login{
+    margin-top: 1rem;
+    color: #940000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
 }

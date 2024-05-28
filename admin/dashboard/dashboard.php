@@ -63,7 +63,7 @@ if (!is_array($product)) {
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" role="search" action="../../admin/login/admin.php" method="get">
+            <form class="d-flex" role="search" action="../../login.php" method="get">
                 <button class="btn btn-outline-success" type="submit">Logout</button>
             </form>
         </div>
@@ -91,7 +91,7 @@ if (!is_array($product)) {
                         <p class="card-text"><?= $p['harga']; ?></p>
                         <p class="card-text"><?= $p['deskripsi']; ?></p>
                         <a href="../../admin/edit_data/edit.php?id=<?= $p['id'];?>" class="badge text-bg-warning text-decoration-none">edit</a>
-                        <a href="../../admin/delete/hapus.php?id=<?= $p['id'];?>" class="badge text-bg-danger text-decoration-none">delete</a>
+                        <a href="../../admin/delete/hapus.php?id=<?= $p['id'];?>" onclick="return confirm('Yakin?')" class="badge text-bg-danger text-decoration-none">delete</a>
                     </div>
                 </div>
             <?php endforeach; ?>
