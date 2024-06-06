@@ -171,6 +171,12 @@ function cari($keyword) {
 
 $conn = koneksi();
 
+
+
+
+
+// register
+
 function registrasi($data){
     global $conn;
 

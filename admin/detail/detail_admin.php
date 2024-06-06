@@ -1,15 +1,12 @@
 <?php
+
 require '../../functions.php';
 
-$product = query("SELECT * FROM product");
+$id = $_GET['id'];
 
-if (isset($_POST['cari'])) {
-    $product = cari($_POST['keyword']);
-}
+$product = query("SELECT * FROM product WHERE id = $id");
 
-if (!is_array($product)) {
-    $product = [];
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +17,36 @@ if (!is_array($product)) {
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../asset/css/navbar.css">
+    <style>
+        .container{
+            text-align: center;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .container h1{
+            text-align: center;
+            margin-top: 0px;
+        }
+        .container a{
+            margin-bottom: 10px;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; 
+        }
+        .card:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+        footer {
+            background-color: #940000;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 <!-- navbar -->
@@ -51,55 +78,48 @@ if (!is_array($product)) {
     </div>
 </nav>
 
-<form class="d-flex" role="search" style="padding: 50px;" method="POST" action="">
-    <input class="form-control me-3 shadow-lg p-2 mb-2 bg-body-tertiary rounded" type="search" placeholder="Search" aria-label="Search" name="keyword" id="keyword">
-    <button class="btn btn-danger" type="submit" name="cari" id="tombol-cari">Search</button>
-  </form>
 
 
 <!-- product -->
 <section id="product">
-<div class="container">
-    <h1>Dashboard</h1>
-    <a href="../add_data/tambah.php" class="btn btn-danger">Tambah Data</a>
-    <div class="d-flex flex-wrap">
-        <?php if (is_array($product) && count($product) > 0) : ?>
-            <?php foreach($product as $p) : ?>
-                <div class="card m-2" style="width: 500px; height:500px;">
-                    <img src="../../asset/img/<?= $p['gambar']; ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $p['nama']; ?></h5>
-                        <p class="card-text"><?= $p['harga']; ?></p>
-                        <p class="card-text"><?= $p['deskripsi']; ?></p>
-                        <a href="../../admin/detail/detail_admin.php?id=<?= $p['id']; ?>" class="btn btn-danger">Selengkapnya</a>
-                        <a href="../../admin/edit_data/edit.php?id=<?= $p['id'];?>" class="badge text-bg-warning text-decoration-none">edit</a>
-                        <a href="../../admin/delete/hapus.php?id=<?= $p['id'];?>" onclick="return confirm('Yakin?')" class="badge text-bg-danger text-decoration-none">delete</a>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <a href="../add_data/tambah.php" class="btn btn-danger">Tambah Data</a>
+        <div class="d-flex flex-wrap justify-content-center">
+            <?php if (is_array($product) && count($product) > 0) : ?>
+                <?php foreach($product as $p) : ?>
+                    <div class="card m-2" style="width: 25rem;">
+                        <img src="../../asset/img/<?= $p['gambar']; ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $p['nama']; ?></h5>
+                            <p class="card-text"><?= $p['harga']; ?></p>
+                            <p class="card-text"><?= $p['deskripsi']; ?></p>
+                            <a href="../../admin/edit_data/edit.php?id=<?= $p['id'];?>" class="badge text-bg-warning text-decoration-none">edit</a>
+                            <a href="../../admin/delete/hapus.php?id=<?= $p['id'];?>" onclick="return confirm('Yakin?')" class="badge text-bg-danger text-decoration-none">delete</a>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else : ?>
-            <p>Tidak ada produk yang ditemukan.</p>
-        <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p>Tidak ada produk yang ditemukan.</p>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
 </section>
 
 <!-- footer -->
 <footer>
     <section class="footer">
         <div class="row mx-3 mt-3">
-          <div class="col-md-9">
-            <p>Copyright © 2024 Food & Culinary</p>
-          </div>
-          <div class="col">
-            <p>Aditya Eka Heriyawan</p>
-          </div>
+            <div class="col-md-9">
+                <p>Copyright © 2024 Food & Culinary</p>
+            </div>
+            <div class="col">
+                <p>Aditya Eka Heriyawan</p>
+            </div>
         </div>
         <br>
-      </section>
-    </footer>
-
-
+    </section>
+</footer>
 
 <!-- bootsrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

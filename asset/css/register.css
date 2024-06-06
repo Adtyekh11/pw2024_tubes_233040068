@@ -83,3 +83,28 @@ body {
     cursor: pointer;
     transition: color 0.3s;
 }
+
+@media screen and (max-width: 768px){
+    
+    
+    .container{
+        font-size: 13px;
+        width: 250px;
+    }
+    
+    .container h1{
+        font-size: 20px;
+    }
+
+    .container button{
+        font-size: 13px;
+        width: 275px;
+    }
+
+    div .login p{
+        font-size: 13px;
+    }
+    div .login a{
+        font-size: 13px;
+    }
+}
