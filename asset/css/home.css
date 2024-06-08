@@ -135,5 +135,43 @@ footer {
     margin-top: 400px;
   }
 
+
+}
+
+  
+@media screen and (max-width: 500px){
+  .content{
+    margin-top: 30px;
+  }
+  .content h1{
+    font-size: 20px;
+    margin-top: 450px;
+  }
+  .content h2{
+    font-size: 20px;
+  }
+  .content p{
+    font-size: 13px;
+  }
+  .image-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* width: 5px; */
+    /* margin-top: 110px; */
+    /* margin-bottom: 500px; */
+  }
+
+
+  .image-container img {
+    width: calc(50% - 10px);
+  }
+
+  footer{
+    margin-top: 400px;
+  }
+
   
 }
+
+

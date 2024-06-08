@@ -136,6 +136,7 @@ footer {
 
 
 
+
 @media screen and (max-width: 768px){
   .container{
     text-align: center;
@@ -176,6 +177,47 @@ footer {
 
 } 
 
+@media screen and (max-width: 500px){
+  .container{
+    text-align: center;
+    margin-left: 60px;
+    font-size: 15px;
+    width: 250px;
+    padding-bottom: 15px;
+    margin-top: 50px;
+    align-items: center;
+  }
+
+  .btn-danger{
+    font-size: 10px;
+  }
+
+  .container h1{
+    font-size: 20px;
+  }
+
+  .container p{
+    font-size: 13px;
+  }
+
+  .container a{
+    font-size: 10px;
+    /* margin-top: 10px; */
+    /* margin-bottom: 20px; */
+  }
+
+  .content h1{
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .content h2{
+    font-size: 20px;
+  }
+  .content p{
+    font-size: 13px;
+  }
+
+} 
 
 
 
